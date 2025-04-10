@@ -1,12 +1,12 @@
 import React from "react";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 const SideBar = () => {
 
-    // const isMenuOpen = useSelector((store) => store.app.isMenuOpen)
-// (!isMenuOpen) ? null : 
-    return (
-        <div className="w-1/6 h-screen bg-gray-100 shadow-2xl lg p-5 gap-5 flex flex-col">
+    const isMenuOpen = useSelector((store) => store.app.isMenuOpen)
+ 
+    return (!isMenuOpen) ? null : (
+        <div className="w-auto h-auto bg-gray-100 shadow-2xl p-5 gap-5 flex flex-col">
             <h1 className="font-bold border-b-2 py-3 cursor-pointer">Home</h1>
             <ul>
                 <li className="cursor-pointer">History</li>

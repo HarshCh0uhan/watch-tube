@@ -1,20 +1,20 @@
 import { RiAccountCircleFill, RiMenu5Line, RiMicFill, RiMovieFill, RiNotification3Fill, RiSearchLine, RiVideoUploadFill } from "@remixicon/react";
-// import toggleMenu from "./utils/appSlice";
-// import { useDispatch } from "react-redux";
+import {toggleMenu} from "../utils/appSlice";
+import { useDispatch } from "react-redux";
 
 const Head = () => {
     
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
     const handleMenu = () => {
-        // dispatch(toggleMenu)
+        dispatch(toggleMenu())
     }
 
     return (
         <div className="grid grid-flow-col justify-between h-[70px] pl-10 pr-10 m-auto shadow-lg items-center">
             <div className="flex gap-5">
-                <button>
-                    <RiMenu5Line onClick={handleMenu} />
+                <button  onClick={() => handleMenu()} >
+                    <RiMenu5Line/>
                 </button>
                 <button className="flex">
                     <RiMovieFill size={30}/>
