@@ -1,18 +1,24 @@
-import React from "react";
-import SideBar from "./SideBar";
-import Head from "./Head";
-import { Outlet } from "react-router-dom";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import Header from './Head';
+import SideBar from './SideBar';
+import { Outlet } from 'react-router-dom';
 
 const Body = () => {
-    return (
-        <div>
-            <Head/>
-            <div className="flex">
-                <SideBar/>
-                <Outlet/>
-            </div>
-        </div>
-    )
-}
+  const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
+
+  return (
+    <div className="flex flex-col h-screen">
+      <Header />
+      <div className="flex flex-1 overflow-hidden">
+        <SideBar />
+        {/* Main content with conditional margin when sidebar is open */}
+        <main className={`flex-1 overflow-y-auto pt-16 ${isMenuOpen ? 'ml-60' : 'ml-0 sm:ml-20'}`}>
+          <Outlet />
+        </main>
+      </div>
+    </div>
+  );
+};
 
 export default Body;
