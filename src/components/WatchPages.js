@@ -10,7 +10,7 @@ const WatchPages = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log("Menu Closed");
+    // console.log("Menu Closed");
     dispatch(closeMenu())
 
   })

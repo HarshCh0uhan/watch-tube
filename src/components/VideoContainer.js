@@ -24,8 +24,8 @@ const VideoContainer = () => {
     return (!videos) ? <h1>404 Something Went Wrong !!!</h1> : (
         <div className="flex flex-wrap justify-center">
             {videos.map((video) => (
-                <Link to={"/watch?v=" + video.id}>
-                    <VideoCard key={video.id} info={video}/>
+                <Link key={video.id} to={"/watch?v=" + video.id}>
+                    <VideoCard info={video}/>
                 </Link>
                 ))}
         </div>
