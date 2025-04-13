@@ -10,6 +10,8 @@ const Head = () => {
     const [searchQuery, setSearchQuery] = useState("")
     const [suggetions, setSuggetions] = useState([])
     const [showSuggetions, setShowSuggetions] = useState(false)
+    
+    console.log(searchQuery);
 
     const searchSuggetion = async () => {
         console.log("API - " + searchQuery);
@@ -22,7 +24,6 @@ const Head = () => {
 
         setSuggetions(json[1])
     }
-
     
     useEffect(() => {
         const handleScroll = () => setShowSuggetions(false);
@@ -64,13 +65,16 @@ const Head = () => {
                         <input type="search" className="w-72 h-10 rounded-3xl border-2 px-5" placeholder="Search..." name="search"
                         value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} 
                         onFocus={() => setShowSuggetions(true)}
-                        onBlur={() => setShowSuggetions(false)}/>
+                        onBlur={() => setTimeout(() => setShowSuggetions(false), 100)}/>
                         {showSuggetions && (
                             <div className='fixed bg-white py-1 px-2 rounded-lg w-[18rem]'>
+                                <ul>
                                 {suggetions.map((suggetion) => 
-                                <ul key={suggetion}>
-                                    <li className="py-2 px-3 shadow-sm cursor-pointer hover:bg-gray-100">{suggetion}</li>
-                                </ul>)}
+                                    <li key={suggetion} className="py-2 px-3 shadow-sm cursor-pointer hover:bg-gray-100" onClick={() => {
+                                        setSearchQuery(suggetion)
+                                    }}>{suggetion}</li>
+                                )}
+                                </ul>
                             </div>
                         )}
                     </div>
