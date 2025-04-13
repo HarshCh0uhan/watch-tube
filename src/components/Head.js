@@ -94,7 +94,6 @@ const Head = () => {
       
         {/* Right - Icons */}
         <div className="flex items-center gap-4">
-          <button><RiMicFill className="text-xl" /></button>
           <button><RiVideoUploadFill className="text-xl" /></button>
           <button><RiNotification3Fill className="text-xl" /></button>
           <button><RiAccountCircleFill size={28} /></button>

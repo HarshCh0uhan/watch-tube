@@ -63,7 +63,6 @@ const WatchPages = () => {
           <div className="mt-4 bg-gray-100 p-3 rounded-xl">
             <div className="flex flex-wrap gap-x-4 text-sm mb-2">
               <span className="font-medium">{viewCount} views</span>
-              <span className="font-medium">{commentCount} comments</span>
               <span>{new Date(publishedAt).toLocaleDateString("en-IN", {
                 year: "numeric",
                 month: "long",
@@ -86,7 +85,7 @@ const WatchPages = () => {
           </div>
           
           <div className="mt-6">
-            <CommentsContainer />
+            <CommentsContainer comment={commentCount}/>
           </div>
         </div>
       </div>
