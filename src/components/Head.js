@@ -78,7 +78,7 @@ const Head = () => {
           <RiSearchLine className="absolute right-3 top-2.5 text-gray-500" />
           
           {showSuggetions && (
-            <ul className="absolute z-10 bg-white border mt-1 w-full rounded-md shadow-md">
+            <ul className="absolute z-10 bg-white mt-1 w-full rounded-md shadow-2xl">
               {suggetions.map((s) => (
                 <li
                   key={s}
