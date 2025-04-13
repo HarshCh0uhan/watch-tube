@@ -6,6 +6,7 @@ import CommentsContainer from './CommentsContainer';
 import useVideosInfo from "./useVideosInfo";
 import { ThumbsUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import LiveChat from './LiveChat';
 
 const WatchPages = () => {
   const [searchParams] = useSearchParams();
@@ -28,7 +29,7 @@ const WatchPages = () => {
   const {commentCount, likeCount, viewCount} = statistics;
 
   return (
-    <div className="flex flex-col lg:flex-row mx-auto px-4 lg:px-6 mr-10 py-4 gap-10">
+    <div className="flex flex-col lg:flex-row mx-auto px-4 lg:px-6 mr-10 py-4 gap-10 mt-5">
       {/* Main video and content section */}
       <div className="w-full lg:w-2/3 xl:w-3/4">
         <div className="aspect-video w-full">
@@ -89,10 +90,13 @@ const WatchPages = () => {
           </div>
         </div>
       </div>
-      
       {/* Related videos section */}
       <div className="w-full lg:w-1/3 xl:w-1/4">
+        <div>
+          <LiveChat/>
+        </div>
         <div className="space-y-3">
+          <h1 className='font-bold'>Related Videos</h1>
           {videos.map((video) => (
             <Link 
               key={video.id} 
